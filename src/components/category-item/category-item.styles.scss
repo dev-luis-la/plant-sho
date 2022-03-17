@@ -20,6 +20,7 @@
   
       & .category-body-container {
         opacity: 0.9;
+        
       }
     }
   
@@ -44,6 +45,7 @@
   
     .category-body-container {
       height: 90px;
+      border-radius: 1em;
       padding: 0 25px;
       display: flex;
       flex-direction: column;
