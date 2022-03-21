@@ -1,5 +1,8 @@
 import {useState} from 'react';
+import FormInput from '../form-input/form-input.component';
+import Button from '../button/button.component';
 import {  createUserDocumentFromAuth, createAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
+import './sign-up-form.styles.scss';
 
 const deafaultFormFields = {
     displayName: '',
@@ -7,6 +10,8 @@ const deafaultFormFields = {
     password: '',
     confirmPassword: ''
 }
+
+
 const SignUpForm = () =>{
   const [formFields, setFormFields] = useState(deafaultFormFields);
   const {displayName, email, password, confirmPassword} = formFields;
@@ -45,38 +50,35 @@ const SignUpForm = () =>{
   };
 
     return(
-        <div>
-            <h1>Sign Up </h1>
+        <div className='sign-up-container'>
+            <h2>Don't have an Account?</h2>
+            <span>Sign Up </span>
             <form onSubmit={handleSubmit}>
-            <label>Name</label>
-            <input 
+            <FormInput 
+            label="Display Name"
             type='text' 
-            id='name' 
             required 
             onChange={handleChange}
-             name="displayName" 
-             value={displayName}/>
-
-            <label>Email</label>
-            <input 
+            name="displayName" 
+            value={displayName}/>
+            <FormInput 
+            label='Email'
             type='email'
-             id='email'
              name='email'
              required
              onChange={handleChange} 
              value={email}
              />
-            <label>Password</label>
-
-            <input 
+            <FormInput 
+            label='Password'
             type="password"
              required
              onChange={handleChange}
              name="password"
              value={password}
              />
-            <label>Confirm Password</label>
-            <input 
+            <FormInput 
+            label='Confirm Password'
             type="password"
             required
             onChange={handleChange}
@@ -84,7 +86,7 @@ const SignUpForm = () =>{
             value={confirmPassword}
             />
 
-            <button type="submit">Register</button>
+            <Button type="submit">Register</Button>
             </form>
         </div>
     )
