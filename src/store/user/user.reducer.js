@@ -13,6 +13,6 @@ export const USER_ACTION_TYPES = {
       case USER_ACTION_TYPES.SET_CURRENT_USER:
         return { ...state, currentUser: payload };
       default:
-        throw new Error(`Unhandled type ${type} in userReducer`);
+        throw state;
     }
   };
